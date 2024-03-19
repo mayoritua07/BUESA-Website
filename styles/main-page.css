@@ -17,15 +17,16 @@ input {
   box-sizing: border-box;
   padding: 25.3rem 9.2rem 24.4rem 9rem;
   width: 100%;
-  
   overflow: hidden;
   position: relative;
   row-gap: 1.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 300px;
   flex-direction: column;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
+  background-color: white;
 }
 
 .buesa-logo {
