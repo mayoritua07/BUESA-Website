@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="./styles/main-page.css" />
   </head>
   <body>
-    <div class="main-page">
+    <div class="main-page" style="height: 85vh">
       <img class="buesa-logo" src="./assets/buesa-logo.png" />
-      <div class="main-div">
+      <div class="main-div" >
         <p class="title">BUESA</p>
         <p class="sub-title">2024 Elections</p>
       </div>
@@ -28,10 +28,7 @@
       </a>
     </div>
     <script>
-      document.getElementsByClassName("main-page").style.height =
-        window.outerHeight - window.innerHeight;
-      document.getElementsByClassName("main-page").style.backgroundColor =
-        "red";
+      document.getElementsByClassName("main-page")[0].style.height = window.innerHeight;
     </script>
   </body>
 </html>
