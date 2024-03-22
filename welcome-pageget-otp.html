@@ -32,8 +32,7 @@
       </div>
       <div class="line"></div>
     </div>
-
-    <div class="main-div" id="main-div">
+    <div class="main-div">
       <img class="buesa-logo" src="./assets/buesa-logo-CTE.png" />
       <div class="sub-div">
         <p class="title">Welcome</p>
@@ -43,20 +42,62 @@
           Elections
         </p>
       </div>
-      <div class="input-box">
-        <img class="matric-number-img" src="./assets/tabler-numbers.png" />
+      <div id="matric-input" class="input-box">
+        <img class="input-img" src="./assets/tabler-numbers.png" />
+        <input
+          type="text"
+          placeholder="Matric Number"
+          class="input-label"
+          maxlength="15"
+        />
+      </div>
+      <!-- <div id="otp-input" class="input-box">
+        <img class="input-img" src="./assets/teenyicons-otp-solid.png" />
         <input
           type="number"
           inputmode="numeric"
-          placeholder="Matric Number"
-          class="matric-number-label input"
+          oninput="javascript: if(this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength);"
           maxlength="6"
-        />
-      </div>
-      <button class="get-otp-button">Get OTP</button>
+          placeholder="Enter OTP here"
+          class="input-label"
+        /> -->
+      <!-- step="6"
+          pattern="[0-9]{6}" -->
+      <!-- </div> -->
+      <button type="button" class="otp-button">Get OTP</button>
+      <p class="resend-text">
+        Didn’t receive OTP? <button class="resend-button">Resend</button>
+      </p>
     </div>
     <script>
-      document.getElementById("main-div").style.height = window.innerHeight;
+      const otp_button = document.querySelector(".otp-button");
+      const resend_text = document.querySelector(".resend-text");
+
+      main_div = document.querySelector(".main-div");
+      const otp_input = document.createElement("template");
+      otp_input.innerHTML = `<div id="otp-input" class="input-box">
+        <img class="input-img" src="./assets/teenyicons-otp-solid.png" />
+        <input
+          type="number"
+          inputmode="numeric"
+          oninput="javascript: if(this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength);"
+          maxlength="6"
+          placeholder="Enter OTP here"
+          class="input-label"
+        />
+      </div>`.trim();
+
+      const get_otp = function () {
+        otp_button.textContent = "Validate OTP";
+        otp_button.addEventListener("click", validate_otp);
+        main_div.insertBefore(otp_input.content.firstChild, otp_button);
+        resend_text.style.opacity = "1";
+      };
+
+      const validate_otp = function () {
+        console.log("validating");
+      };
+      otp_button.addEventListener("click", get_otp);
     </script>
   </body>
 </html>
