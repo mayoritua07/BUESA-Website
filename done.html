@@ -25,11 +25,12 @@
           <span class="buesa-polls-2024-1iL-sub-1">2024</span>
         </p>
       </div> -->
+
       <div class="upper-div">
         <div class="upper-content">
-          <button class="back-button">
-            <img class="back-arrow" src="./assets/vector-idJ.png" />
-          </button>
+          <!-- <button class="back-button">
+              <img class="back-arrow" src="./assets/vector-idJ.png" />
+            </button> -->
           <div class="header">
             <span>BUESA Polls <span class="header-sub"> 2024</span> </span>
           </div>
@@ -51,5 +52,13 @@
         <button class="see-poll-results-text">See Poll Results</button>
       </div>
     </div>
+
+    <script>
+      const seePollButton = document.querySelector(".see-poll-results-text");
+      console.log(seePollButton);
+      seePollButton.addEventListener("click", function () {
+        window.location.href = "./voting-tracker.html";
+      });
+    </script>
   </body>
 </html>
