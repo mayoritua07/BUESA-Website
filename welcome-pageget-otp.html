@@ -19,6 +19,10 @@
       href="https://fonts.googleapis.com/css?family=Montserrat%3A400%2C700%2C800"
     />
     <link rel="stylesheet" href="./styles/welcome-pageget-otp.css" />
+    <script
+      src="https://kit.fontawesome.com/63ccf9df6a.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="upper-div">
@@ -33,7 +37,7 @@
       <div class="line"></div>
     </div>
     <div class="main-div">
-      <img class="buesa-logo" src="./assets/buesa-logo-CTE.png" />
+      <img class="buesa-logo" src="./assets/BUESA Logo.png" />
       <div class="sub-div">
         <p class="title">Welcome</p>
         <p class="sub-title">
@@ -43,12 +47,20 @@
         </p>
       </div>
       <div id="matric-input" class="input-box">
-        <img class="input-img" src="./assets/tabler-numbers.png" />
+        <!-- <img class="input-img" src="./assets/tabler-numbers.png" /> -->
+        <img
+          width="30"
+          height="30"
+          class="matric-img"
+          src="https://img.icons8.com/ios-glyphs/30/123.png"
+          alt="123"
+        />
         <input
           type="text"
           placeholder="Matric Number"
+          name="Matric-number"
           class="input-label"
-          maxlength="15"
+          maxlength="10"
         />
       </div>
       <!-- <div id="otp-input" class="input-box">
@@ -66,19 +78,24 @@
       <!-- </div> -->
       <button type="button" class="otp-button">Get OTP</button>
       <p class="resend-text">
-        Didn’t receive OTP? <button class="resend-button">Resend</button>
+        Didn’t receive OTP?
+        <button type="button" class="resend-button">Resend</button>
       </p>
     </div>
     <script>
+      // addEventListener("beforeunload", (event) => {
+      //   event.preventDefault();
+      // });
       const otp_button = document.querySelector(".otp-button");
       const resend_text = document.querySelector(".resend-text");
 
+      // <img class="input-img" src="./assets/teenyicons-otp-solid.png" />
       main_div = document.querySelector(".main-div");
       const otp_input = document.createElement("template");
       otp_input.innerHTML = `<div id="otp-input" class="input-box">
-        <img class="input-img" src="./assets/teenyicons-otp-solid.png" />
+        <i class="fa-brands fa-keycdn fa-2xl otp-img"></i>
         <input
-          type="number"
+        type="number"
           inputmode="numeric"
           oninput="javascript: if(this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength);"
           maxlength="6"
@@ -94,9 +111,7 @@
         resend_text.style.opacity = "1";
       };
 
-      const validate_otp = function () {
-        console.log("validating");
-      };
+      const validate_otp = function () {};
       otp_button.addEventListener("click", get_otp);
     </script>
   </body>

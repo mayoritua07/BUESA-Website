@@ -389,7 +389,7 @@
       -->
     </div>
     <script>
-      function createCategory(title, candidates_list, totalVotes) {
+      const createCategory = function (title, candidates_list) {
         color = ["#2f51ff", "#ff862f", "green", "blueviolet", "darkkhaki"];
         category = document.createElement("template");
         category.innerHTML = `<div class="category">
@@ -407,14 +407,13 @@
               color: color[index % color.length],
               name: item["name"],
               votes: item["votes"],
-              totalVotes: totalVotes,
             })
           );
         }
         return category;
-      }
+      };
 
-      function createCandidateItem({ link, color, name, votes, totalVotes }) {
+      const createCandidateItem = function ({ link, color, name, votes }) {
         candidateItem = document.createElement("template");
         candidateItem.innerHTML = `
         <div class="candidate-div">
@@ -451,7 +450,7 @@
         item.querySelector(".votes").textContent = votes;
 
         return item;
-      }
+      };
 
       totalVotes = 1789;
 
@@ -476,11 +475,7 @@
       document
         .querySelector(".main-div")
         .appendChild(
-          createCategory(
-            "Entepreneur of the year",
-            candidate_object,
-            totalVotes
-          )
+          createCategory("Entepreneur of the year", candidate_object)
         );
     </script>
   </body>

@@ -17,38 +17,42 @@
     <link rel="stylesheet" href="./styles/main-voting-link-default.css" />
   </head>
   <body>
-    <div class="main-voting-link-default-cx4">
-      <div class="frame-81-wjS">
-        <img class="vector-5Kr" src="./assets/vector-ZAL.png" />
-        <p class="buesa-polls-2024-CvG">
-          <span class="buesa-polls-2024-CvG-sub-0">BUESA Polls </span>
-          <span class="buesa-polls-2024-CvG-sub-1">2024</span>
-        </p>
+    <div class="main-page">
+      <div class="upper-div">
+        <div class="upper-content">
+          <!-- <button class="back-button">
+        <img class="back-arrow" src="./assets/vector-idJ.png" />
+        </button> -->
+          <div class="header">
+            <span>BUESA Polls <span class="header-sub"> 2024</span> </span>
+          </div>
+        </div>
+        <div class="line"></div>
       </div>
-      <div class="line-1-PUx"></div>
-      <div class="auto-group-bl1z-Yck">
-        <div class="frame-60-suv">
-          <div class="frame-45-QQ4">
-            <div class="auto-group-ghbs-xgU">
-              <p class="post-title">Presidential Candidates</p>
-              <div class="candidate-box">
-                <!-- <div class="frame-42-mdv"> -->
-                <img class="profile-img" src="./assets/vector-Wu2.png" />
-                <div class="inner-div">
-                  <div class="name-div">
-                    <p class="first-name">Joseph</p>
-                    <p class="last-name">Akinteye</p>
-                  </div>
-                  <!-- <div class="ellipse-23-2iG"></div> -->
-                  <input
-                    type="radio"
-                    name="presidential"
-                    class="radio-button"
-                  />
+      <!-- <div class="line-1-PUx"></div> -->
+      <div class="lower-div">
+        <div class="all-candidates">
+          <div class="category">
+            <p class="post-title">Presidential Candidates</p>
+            <!-- <div class="single-candidate"> -->
+            <div class="candidate-box">
+              <!-- <div class="frame-42-mdv"> -->
+              <img class="profile-img" src="./assets/vector-Wu2.png" />
+              <div class="inner-div">
+                <div class="name-div">
+                  <p class="first-name">Joseph</p>
+                  <p class="last-name">Akinteye</p>
                 </div>
-                <!-- </div> -->
+                <!-- <div class="ellipse-23-2iG"></div> -->
+                <input
+                  type="radio"
+                  name="Presidential Candidates"
+                  class="radio-button"
+                />
               </div>
+              <!-- </div> -->
             </div>
+            <!-- </div> -->
             <div class="frame-44-7Up">
               <div class="frame-42-rxC">
                 <img class="vector-RVW" src="./assets/vector-m7S.png" />
@@ -61,7 +65,7 @@
                    -->
                   <input
                     type="radio"
-                    name="presidential"
+                    name="Presidential Candidates"
                     class="radio-button"
                   />
                 </div>
@@ -416,8 +420,69 @@
             </div>
           </div>
         </div>
-        <div class="frame-61-oFS">Submit</div>
+        <button class="submit-button">Submit</button>
       </div>
     </div>
+
+    <script>
+      class Candidate {
+        constructor(name, link) {
+          (this.name = name), (this.link = link);
+        }
+      }
+
+      const createCandidateBox = function (candidate, post_title) {
+        const link = candidate["link"];
+        const [lastName, firstName] = candidate.name.split(" ");
+
+        const candidateBox = document.createElement("template");
+        candidateBox.innerHTML = `<div class="candidate-box">
+              <img class="profile-img" src="${link}" />
+              <div class="inner-div">
+                <div class="name-div">
+                  <p class="first-name">${firstName}</p>
+                  <p class="last-name">${lastName}</p>
+                </div>
+                <input
+                  type="radio"
+                  name="${post_title}"
+                  class="radio-button"
+                  value="${candidate.name}"
+                />
+              </div>
+            </div>`.trim();
+        return candidateBox.content.firstChild;
+      };
+
+      const createCategory = function (post_title, candidateList) {
+        let category = document.createElement("template");
+        category.innerHTML = `<div class="category">
+            <p class="post-title">${post_title}</p>
+          </div>`.trim();
+
+        category = category.content.firstChild;
+
+        for (candidate of candidateList) {
+          category.appendChild(createCandidateBox(candidate, post_title));
+        }
+        // console.log(category.content.firstChild);
+
+        document.querySelector(".all-candidates").appendChild(category);
+      };
+
+      candidate1 = new Candidate("Itua David", "assets/buesa-logo.png");
+      candidate2 = new Candidate("Itua Iregbeyanose", "assets/buesa-logo.png");
+
+      createCategory("President", [candidate1, candidate2]);
+
+      createCategory("Vice-President", [candidate1, candidate2, candidate1]);
+
+      const submit_button = document.querySelector(".submit-button");
+
+      // submit_button.addEventListener("click", function () {
+      //   const choice = document.querySelectorAll(".radio-button:checked");
+      //   console.log(choice[0]);
+      // });
+    </script>
   </body>
 </html>
