@@ -35,7 +35,7 @@
         <form class="form">
           <div class="all-candidates"></div>
           <div class="submit-div">
-            <input type="submit" class="submit-button" />
+            <button type="submit" class="submit-button">Submit</button>/>
           </div>
         </form>
 
@@ -44,6 +44,9 @@
     </div>
 
     <script>
+      addEventListener("beforeunload", (event) => {
+        event.preventDefault();
+      });
       class Candidate {
         constructor(name, link) {
           (this.name = name), (this.link = link);
@@ -110,66 +113,69 @@
         candidate5,
       ]);
 
-      createCategory("General Secretary Candidates", [
-        candidate4,
-        candidate6,
-        candidate1,
-      ]);
+      // createCategory("General Secretary Candidates", [
+      //   candidate4,
+      //   candidate6,
+      //   candidate1,
+      // ]);
 
-      createCategory("Asst. General Secretary Candidates", [
-        candidate2,
-        candidate6,
-        candidate3,
-      ]);
+      // createCategory("Asst. General Secretary Candidates", [
+      //   candidate2,
+      //   candidate6,
+      //   candidate3,
+      // ]);
 
-      createCategory("Financial Secretary Candidates", [
-        candidate4,
-        candidate3,
-        candidate5,
-      ]);
+      // createCategory("Financial Secretary Candidates", [
+      //   candidate4,
+      //   candidate3,
+      //   candidate5,
+      // ]);
 
-      createCategory("Treasurer Candidates", [
-        candidate2,
-        candidate3,
-        candidate1,
-      ]);
+      // createCategory("Treasurer Candidates", [
+      //   candidate2,
+      //   candidate3,
+      //   candidate1,
+      // ]);
 
-      createCategory("Welfare Secretary Candidates", [
-        candidate4,
-        candidate6,
-        candidate5,
-      ]);
+      // createCategory("Welfare Secretary Candidates", [
+      //   candidate4,
+      //   candidate6,
+      //   candidate5,
+      // ]);
 
-      createCategory("Social Director Candidates", [
-        candidate3,
-        candidate1,
-        candidate6,
-      ]);
+      // createCategory("Social Director Candidates", [
+      //   candidate3,
+      //   candidate1,
+      //   candidate6,
+      // ]);
 
-      createCategory("Technology Secretary Candidates", [
-        candidate4,
-        candidate6,
-        candidate5,
-      ]);
+      // createCategory("Technology Secretary Candidates", [
+      //   candidate4,
+      //   candidate6,
+      //   candidate5,
+      // ]);
 
-      createCategory("Asst. Tech. Secretary Candidates", [
-        candidate3,
-        candidate2,
-        candidate5,
-      ]);
+      // createCategory("Asst. Tech. Secretary Candidates", [
+      //   candidate3,
+      //   candidate2,
+      //   candidate5,
+      // ]);
 
-      createCategory("Sports Director Candidates", [
-        candidate6,
-        candidate4,
-        candidate1,
-      ]);
+      // createCategory("Sports Director Candidates", [
+      //   candidate6,
+      //   candidate4,
+      //   candidate1,
+      // ]);
 
       const submit_button = document.querySelector(".submit-button");
 
       submit_button.addEventListener("click", function () {
         // const choice = document.querySelectorAll(".radio-button:checked");
         // console.log(choice[0]);
-        // window.location.href = "./done.html";
+      });
+      document.querySelector(".form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        window.location.href = "./done.html";
       });
     </script>
   </body>
