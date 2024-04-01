@@ -24,6 +24,10 @@ input {
   background-color: #ffffff;
 }
 
+body{
+  min-width: 200px;
+}
+
 .body-div{
   box-sizing: border-box;
   /* padding: 10.477rem 7.701rem 19.1rem 7.9rem; */
