@@ -11,7 +11,11 @@ ul, li {
 }
 input {
 	border: none;
-} 
+}
+
+body{
+  min-width: 200px
+}
 
 .main-page{
   box-sizing: border-box;
@@ -23,6 +27,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 90vh;
   min-height: 400px;
   flex-direction: column;
   /* background-color: #ffffff; */

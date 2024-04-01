@@ -13,10 +13,10 @@ input {
 	border: none;
 }
 
-/* body {
-   width: 36.001rem; 
-} */
 
+body{
+  min-width: 250px;
+}
 
 
 .main-page {
@@ -101,7 +101,7 @@ input {
 .all-candidates {
   margin-bottom: 2.8rem;
   width: 100%;
-  row-gap: 3.4rem;
+  row-gap: 2rem;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -112,7 +112,7 @@ input {
   margin-top: 20px;
   align-items: center;
   display: flex;
-  gap: 20px;
+  gap: 15px;
   flex-direction: column;
   flex-shrink: 0;
 }
@@ -137,7 +137,7 @@ input {
 }
 .candidate-box {
   box-sizing: border-box;
-  padding:0  1rem;
+  padding:0 5px;
   width: 100%;
   height: 10rem;
   position: relative;
@@ -147,7 +147,6 @@ input {
   gap: 5px;
   align-items: center;
   justify-content: space-between;
-  min-width: 270px;
   flex-shrink: 0;
 }
 
@@ -219,10 +218,9 @@ input {
   border-radius: 0.8rem;
   flex-shrink: 0;
   border-style: outset;
-  /* border-right-color: black;
-  border-bottom-color: black; */
-  /* border-left-color: white;
-  border-top-color: white; */
+   border-right-color: black;
+  border-bottom-color: black;
+
 }
 
 .submit-button:active{
@@ -231,4 +229,17 @@ input {
   border-style: inset;
     border-right: none;
   border-bottom: none;
+  border-left-color: black;
+  border-top-color: black;
+}
+
+.form{
+  width: 100%;
+  
+}
+
+.submit-div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

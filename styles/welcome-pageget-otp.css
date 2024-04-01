@@ -12,6 +12,7 @@ ul, li {
 
 body{
   width: 100%;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,7 +123,8 @@ body{
   font-weight: 800;
   line-height: 1.4285714286;
   margin: 0 4px;
-  color: #a70000;
+  /* color: #a70000; */
+  color: red;
   font-family: Montserrat, 'Source Sans Pro';
 }
 
@@ -235,8 +237,14 @@ body{
 }
 
 
-
 #otp-input{
   animation-name: fadeIn;
   animation-duration: 0.5s;
+}
+
+
+.feedback-message{
+  color: red;
+  font-size: 14px;
+  padding-bottom: 3px;
 }

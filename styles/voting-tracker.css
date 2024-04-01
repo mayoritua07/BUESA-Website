@@ -12,9 +12,10 @@ ul, li {
 input {
 	border: none;
 }
-/* body {
-  width: 36.001rem;
-} */
+
+body{
+  min-width: 280px;
+}
 
 .upper-div{
   /* margin: 2rem 0rem 0rem 0rem; */
