@@ -30,9 +30,16 @@
         <div class="line"></div>
       </div>
       <!-- <div class="line-1-PUx"></div> -->
+
       <div class="lower-div">
-        <div class="all-candidates"></div>
-        <button class="submit-button">Submit</button>
+        <form class="form">
+          <div class="all-candidates"></div>
+          <div class="submit-div">
+            <input type="submit" class="submit-button" />
+          </div>
+        </form>
+
+        <!-- <button class="submit-button">Submit</button> -->
       </div>
     </div>
 
@@ -55,7 +62,7 @@
                   <p class="first-name">${firstName}</p>
                   <p class="last-name">${lastName}</p>
                 </div>
-                <input
+                <input required 
                   type="radio"
                   name="${post_title}"
                   class="radio-button"
@@ -162,7 +169,7 @@
       submit_button.addEventListener("click", function () {
         // const choice = document.querySelectorAll(".radio-button:checked");
         // console.log(choice[0]);
-        window.location.href = "./done.html";
+        // window.location.href = "./done.html";
       });
     </script>
   </body>

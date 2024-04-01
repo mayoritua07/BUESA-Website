@@ -46,7 +46,7 @@
           Elections
         </p>
       </div>
-      <div id="matric-input" class="input-box">
+      <div class="input-box">
         <!-- <img class="input-img" src="./assets/tabler-numbers.png" /> -->
         <img
           width="30"
@@ -57,6 +57,7 @@
         />
         <input
           type="text"
+          id="matric-input"
           placeholder="Matric Number"
           name="Matric-number"
           class="input-label"
@@ -88,13 +89,16 @@
       // });
       const otp_button = document.querySelector(".otp-button");
       const resend_text = document.querySelector(".resend-text");
+      const matric_input = document.querySelector("#matric-input");
+      const matric_box = document.querySelector(".input-box input");
 
       // <img class="input-img" src="./assets/teenyicons-otp-solid.png" />
       main_div = document.querySelector(".main-div");
-      const otp_input = document.createElement("template");
-      otp_input.innerHTML = `<div id="otp-input" class="input-box">
+      const otp_box = document.createElement("template");
+      otp_box.innerHTML = `<div  class="input-box">
         <i class="fa-brands fa-keycdn fa-2xl otp-img"></i>
         <input
+        id="otp-input"
         type="number"
           inputmode="numeric"
           oninput="javascript: if(this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength);"
@@ -103,15 +107,32 @@
           class="input-label"
         />
       </div>`.trim();
-
+      const feedback_message = document.createElement("p");
+      feedback_message.classList.add("feedback-message");
       const get_otp = function () {
+        if (matric_input.value == "") {
+          feedback_message.textContent = `Invalid Matric Number`;
+          main_div.insertBefore(feedback_message, otp_button);
+          return;
+        }
+
+        feedback_message.textContent = "";
         otp_button.textContent = "Validate OTP";
+        matric_input.disabled = true;
         otp_button.addEventListener("click", validate_otp);
-        main_div.insertBefore(otp_input.content.firstChild, otp_button);
+        main_div.insertBefore(otp_box.content, otp_button);
         resend_text.style.opacity = "1";
       };
 
       const validate_otp = function () {
+        const otp_input = document.querySelector("#otp-input");
+        if (otp_input.value == "") {
+          feedback_message.textContent = "Invalid Otp";
+          main_div.insertBefore(feedback_message, otp_button);
+          return;
+        }
+
+        // feedback_message.textContent = "";
         window.location.href = "./main-voting-link-default.html";
       };
       otp_button.addEventListener("click", get_otp);
